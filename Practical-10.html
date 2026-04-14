@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS for Card Hover Interactivity */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            height: 100%; /* Ensures cards in the same row are equal height */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Smooth transition for the button */
+        .add-to-cart-btn {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-light pb-5">
+
+    <nav class="navbar navbar-dark bg-dark mb-5 shadow-sm">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1"><i class="bi bi-shop me-2"></i>TechShop</span>
+            <button class="btn btn-outline-light position-relative">
+                <i class="bi bi-cart3"></i> Cart
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                </span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="mb-4">Trending Products</h2>
+        
+        <div class="row g-4">
+            
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Headphones">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Audio</small>
+                        <h5 class="card-title text-truncate">Premium Headphones</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$149.99</span>
+                            <span class="text-muted text-decoration-line-through ms-2" style="font-size: 0.85rem;">$199.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Smart Watch">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Wearables</small>
+                        <h5 class="card-title text-truncate">Smart Fitness Watch</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$89.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Running Shoes">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Footwear</small>
+                        <h5 class="card-title text-truncate">Pro Running Shoes</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$120.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80" alt="Camera">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Photography</small>
+                        <h5 class="card-title text-truncate">Vintage Polaroid</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$65.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80" alt="Earbuds">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Audio</small>
+                        <h5 class="card-title text-truncate">Wireless Earbuds</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$59.99</span>
+                            <span class="text-muted text-decoration-line-through ms-2" style="font-size: 0.85rem;">$79.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Sneakers">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Footwear</small>
+                        <h5 class="card-title text-truncate">Urban Sneakers</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$95.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&q=80" alt="Keyboard">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Accessories</small>
+                        <h5 class="card-title text-truncate">Mechanical Keyboard</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$110.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Sunglasses">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Fashion</small>
+                        <h5 class="card-title text-truncate">Classic Sunglasses</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$25.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Canvas Backpack">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Travel</small>
+                        <h5 class="card-title text-truncate">Canvas Backpack</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$45.00</span>
+                            <span class="text-muted text-decoration-line-through ms-2" style="font-size: 0.85rem;">$60.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80" alt="Smart Watch">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Wearables</small>
+                        <h5 class="card-title text-truncate">Apple Watch Series</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$399.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=80" alt="Mouse">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Gaming</small>
+                        <h5 class="card-title text-truncate">Wireless Gaming Mouse</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$75.00</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card rounded-4 shadow-sm">
+                    <div class="product-img-container rounded-top-4">
+                        <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=600&q=80" alt="Controller">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.75rem;">Gaming</small>
+                        <h5 class="card-title text-truncate">Console Controller</h5>
+                        <div class="mt-2 mb-3">
+                            <span class="fs-5 fw-bold text-dark">$69.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn w-100 mt-auto d-flex justify-content-center align-items-center gap-2" onclick="addToCart(this)">
+                            <i class="bi bi-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div> </div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function addToCart(button) {
+            // Prevent rapid multi-clicks on the specific button clicked
+            if (button.classList.contains('btn-success')) return;
+
+            const icon = button.querySelector('i');
+            const text = button.querySelector('span');
+
+            // Change button state
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-success');
+            icon.classList.remove('bi-cart-plus');
+            icon.classList.add('bi-check-circle-fill');
+            text.textContent = 'Added!';
+
+            // Pulse animation
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 100);
+
+            // Revert back after 2 seconds
+            setTimeout(() => {
+                button.classList.remove('btn-success');
+                button.classList.add('btn-primary');
+                icon.classList.remove('bi-check-circle-fill');
+                icon.classList.add('bi-cart-plus');
+                text.textContent = 'Add to Cart';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

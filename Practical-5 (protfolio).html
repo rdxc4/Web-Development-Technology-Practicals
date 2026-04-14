@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teja Poluru | Cybersecurity Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #050505;
+            --text-main: #00ff41;
+            --text-muted: #008f11;
+            --accent: #00ffff;
+            --terminal-bg: #111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY & GLOW EFFECTS --- */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            text-shadow: 0 0 5px var(--text-muted);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 8px var(--text-main);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(5, 5, 5, 0.9);
+            border-bottom: 1px solid var(--text-muted);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            margin-top: 2rem;
+        }
+
+        .hero p.system-msg {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid var(--text-main);
+            white-space: nowrap;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-main); }
+        }
+
+        /* --- TERMINAL WINDOW (ABOUT & SKILLS) --- */
+        .section-container {
+            padding: 5rem 10%;
+        }
+
+        .terminal-window {
+            background: var(--terminal-bg);
+            border: 1px solid var(--text-muted);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .terminal-header {
+            background: #222;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid var(--text-muted);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 2rem;
+        }
+
+        .terminal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            list-style: none;
+        }
+
+        .skills-grid li::before {
+            content: "> ";
+            color: var(--accent);
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-card {
+            border: 1px dashed var(--text-main);
+            padding: 2rem;
+            text-align: left;
+            margin-top: 2rem;
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .contact-card p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--text-muted);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- MEDIA QUERIES (RESPONSIVE DESIGN) --- */
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            .section-container {
+                padding: 4rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">root@teja:~#</div>
+        <ul class="nav-links">
+            <li><a href="#home">/home</a></li>
+            <li><a href="#about">/about</a></li>
+            <li><a href="#skills">/skills</a></li>
+            <li><a href="#contact">/contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <p class="system-msg">System initialized. Establishing secure connection...</p>
+        <h1>Teja Poluru</h1>
+        <h2><span class="typewriter">Cybersecurity Student & Enthusiast</span></h2>
+        <p>B.Tech 2nd Year • CSE Cybersecurity</p>
+        <p>Marwadi University</p>
+    </section>
+
+    <section id="about" class="section-container">
+        <h2>Target Reconnaissance</h2>
+        
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
+            <div class="terminal-body">
+                <p><span style="color: var(--accent);">user@sys:~$</span> cat about_me.txt</p>
+                <p>I am a second-year B.Tech student specializing in Computer Science and Cybersecurity at Marwadi University. I am passionate about securing networks, hunting vulnerabilities, and understanding the mechanics of cyber threats to build robust digital defenses.</p>
+                
+                <br>
+                <p id="skills"><span style="color: var(--accent);">user@sys:~$</span> ./list_skills.sh</p>
+                <ul class="skills-grid">
+                    <li>Networking</li>
+                    <li>Firewall Configuration</li>
+                    <li>Kali Linux</li>
+                    <li>Web App Security</li>
+                    <li>Reconnaissance</li>
+                    <li>Network Security</li>
+                    <li>Network Pentesting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-container">
+        <h2>Establish Connection</h2>
+        <div class="contact-card">
+            <p>> <strong>Status:</strong> Listening for incoming connections...</p>
+            <p>> <strong>Email:</strong> <a href="mailto:poluru124132@marwadiuniversity.ac.in">poluru124132@marwadiuniversity.ac.in</a></p>
+            <p>> <strong>Comm_Link:</strong> +91 98765 43210</p>
+            <p>> <strong>Location:</strong> Marwadi University, Rajkot, Gujarat</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>EOF. &copy; 2026 Teja Poluru. All networks secured.</p>
+    </footer>
+
+</body>
+</html>
