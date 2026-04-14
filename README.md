@@ -45,13 +45,6 @@ Bootstrap
 Tailwind CSS
 
 
-🚀 How to Use
-
-Clone the repository
-
-git clone https://github.com/your-username/web-dev-lab.git
-Open the project folder
-Run files in any web browser
 🎯 Learning Outcomes
 Ability to design structured web pages
 Understanding of responsive design principles
